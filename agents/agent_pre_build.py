@@ -2,13 +2,12 @@ import os
 from  langgraph.prebuilt import create_react_agent
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
+
 from tools import google_search_api
+from utils import print_response
 
 load_dotenv('.env')
 openai_api_key = os.getenv("OPENAI_API_KEY")
-
-def print_response(response):
-    print(response["messages"][-1].content)
 
 system_prompt = """You are a travel research agent with access to Google Search.
 
