@@ -44,5 +44,10 @@ workflow.add_edge("tools", "LLM")
 
 agent = workflow.compile()
 
-for chunk in agent.stream({"messages": [("user", "Clima no Japão agora?")]}, stream_mode="values"):
-    chunk["messages"][-1].pretty_print()
+# Versão streaming
+# for chunk in agent.stream({"messages": [("user", "Clima no Japão agora?")]}, stream_mode="values"):
+#     chunk["messages"][-1].pretty_print()
+
+# Versão não-streaming (síncrona)
+response = agent.invoke({"messages": [("user", "Clima no Japão agora?")]})
+response["messages"][-1].pretty_print()
