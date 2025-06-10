@@ -44,5 +44,5 @@ workflow.add_edge("tools", "LLM")
 
 agent = workflow.compile()
 
-for chunck in agent.stream({"messages": [("user", "Clima no Japão agora?")]}, stream_mode="values"):
-    chunck["messages"][-1].pretty_print()
+for chunk in agent.stream({"messages": [("user", "Clima no Japão agora?")]}, stream_mode="values"):
+    chunk["messages"][-1].pretty_print()
